@@ -1,0 +1,129 @@
+.track {
+  position: relative;
+  height: 260vh;
+  background: var(--color-bg);
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 36rem;
+  overflow: hidden;
+}
+
+.visual {
+  position: absolute;
+  inset: 0;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, var(--color-bg) 0%, color-mix(in srgb, var(--color-bg) 55%, transparent) 26%, transparent 45%),
+    linear-gradient(0deg, var(--color-bg) 0%, transparent 22%);
+}
+
+@media (min-width: 1024px) {
+  .vignette {
+    background:
+      linear-gradient(90deg, var(--color-bg) 0%, color-mix(in srgb, var(--color-bg) 70%, transparent) 30%, transparent 52%),
+      linear-gradient(180deg, var(--color-bg) 0%, transparent 22%),
+      linear-gradient(0deg, var(--color-bg) 0%, transparent 22%);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: calc(var(--layout-header-height) + var(--space-10));
+  padding-bottom: var(--space-10);
+  pointer-events: none;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 44rem;
+}
+
+.eyebrow {
+  color: var(--color-accent-text);
+}
+
+.lead {
+  max-width: 32rem;
+  color: var(--color-fg-secondary);
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.stages {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+  max-width: 40rem;
+  list-style: none;
+  padding: 0;
+}
+
+.stageItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  color: var(--color-fg-muted);
+  transition: color var(--duration-standard) var(--ease-out);
+}
+
+.stageBar {
+  height: 0.1875rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-strong);
+  transition: background-color var(--duration-standard) var(--ease-out);
+}
+
+.reached .stageBar {
+  background: var(--color-accent);
+}
+
+.current {
+  color: var(--color-fg);
+}
+
+.stageLabel {
+  font-size: var(--text-small-size);
+  font-weight: var(--weight-semibold);
+}
+
+.caption {
+  font-size: var(--text-caption-size);
+  color: var(--color-fg-muted);
+}
+
+@media (min-width: 768px) {
+  .track {
+    height: 300vh;
+  }
+}
+
+/* Reduced motion: a normal-height section showing the complete network. */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    height: auto;
+  }
+
+  .stage {
+    position: relative;
+  }
+}

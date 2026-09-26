@@ -1,0 +1,17 @@
+.emergency {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-10);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid color-mix(in srgb, var(--color-danger) 35%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-danger) 6%, var(--color-bg));
+  font-size: var(--text-small-size);
+  color: var(--color-fg);
+}
+
+.emergency svg {
+  flex: none;
+  margin-top: 0.125rem;
+  color: var(--color-danger);
+}

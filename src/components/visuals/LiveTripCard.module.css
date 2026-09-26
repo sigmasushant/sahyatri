@@ -1,0 +1,210 @@
+.card {
+  max-width: 26rem;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-caption-size);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+.liveDot {
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.liveDot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: ping 2s var(--ease-out) infinite;
+}
+
+.eta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.etaValue {
+  font-size: var(--text-h3-size);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.03em;
+}
+
+/* Vertical route with the vehicle moving between Gurgaon and Neemrana. */
+.route {
+  --row: 3.5rem;
+  position: relative;
+  padding: var(--space-2) 0;
+}
+
+.stops {
+  display: grid;
+  list-style: none;
+  padding: 0;
+}
+
+.track {
+  position: absolute;
+  top: calc(var(--space-2) + var(--row) / 2);
+  bottom: calc(var(--space-2) + var(--row) / 2);
+  left: 0.4375rem;
+  width: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-strong);
+}
+
+.trackFill {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 42%;
+  border-radius: inherit;
+  background: var(--color-accent);
+  animation: fill 12s var(--ease-in-out) infinite alternate both;
+}
+
+.vehicle {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 3px solid var(--color-bg-elevated);
+  border-radius: 50%;
+  background: var(--color-fg);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 35%, transparent);
+  transform: translate(-50%, -50%);
+  animation: move 12s var(--ease-in-out) infinite alternate both;
+}
+
+.stop {
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  grid-template-rows: auto auto;
+  column-gap: var(--space-4);
+  align-content: center;
+  min-height: var(--row);
+}
+
+.node {
+  grid-row: span 2;
+  align-self: center;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-strong);
+  background: var(--color-bg-elevated);
+  position: relative;
+  z-index: 1;
+}
+
+.done .node {
+  border-color: var(--color-accent-text);
+  background: var(--color-accent);
+}
+
+.next .node {
+  border-color: var(--color-fg);
+}
+
+.place {
+  font-size: var(--text-small-size);
+  font-weight: var(--weight-semibold);
+}
+
+.detail {
+  font-size: var(--text-caption-size);
+  color: var(--color-fg-muted);
+}
+
+.upcoming .place {
+  color: var(--color-fg-secondary);
+}
+
+.protected {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+.protectedTitle {
+  font-size: var(--text-caption-size);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2);
+}
+
+.share,
+.sos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding-inline: var(--space-5);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-small-size);
+  font-weight: var(--weight-semibold);
+}
+
+.share {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.sos {
+  border: 1px solid color-mix(in srgb, var(--color-danger) 45%, transparent);
+  color: var(--color-danger);
+}
+
+@keyframes fill {
+  from {
+    height: 36%;
+  }
+  to {
+    height: 62%;
+  }
+}
+
+@keyframes move {
+  from {
+    top: 36%;
+  }
+  to {
+    top: 62%;
+  }
+}
+
+@keyframes ping {
+  from {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}

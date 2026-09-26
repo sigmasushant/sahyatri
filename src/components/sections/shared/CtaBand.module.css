@@ -1,0 +1,36 @@
+.band {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--layout-section-y);
+  background:
+    radial-gradient(ellipse 50% 80% at 90% 100%, color-mix(in srgb, var(--palette-lime-400) 14%, transparent), transparent 70%),
+    var(--color-bg);
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-10);
+  align-items: end;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: minmax(0, 3fr) auto;
+  }
+}
+
+.title {
+  max-width: 8.1em;
+}
+
+.text {
+  margin-top: var(--space-5);
+  max-width: 34rem;
+  color: var(--color-fg-secondary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

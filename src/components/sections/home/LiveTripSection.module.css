@@ -1,0 +1,18 @@
+.layout {
+  display: grid;
+  gap: var(--layout-stack-gap);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-20);
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}

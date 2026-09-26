@@ -1,0 +1,20 @@
+.skip {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: var(--z-skip-link);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--palette-lime-400);
+  color: var(--palette-midnight-900);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-small-size);
+  transform: translateY(-200%);
+  transition: transform var(--duration-micro) var(--ease-out);
+}
+
+.skip:focus-visible {
+  transform: translateY(0);
+  outline-color: var(--palette-midnight-900);
+  border-radius: var(--radius-pill);
+}

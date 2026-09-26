@@ -1,0 +1,76 @@
+/* Zero-specificity base so a consumer's className (sizing, positioning) always wins. */
+:where(.root) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.fallback,
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.fallback {
+  transition: opacity var(--duration-scene) var(--ease-out);
+}
+
+.fallback > picture {
+  display: contents;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.canvas {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-scene) var(--ease-out);
+}
+
+.root[data-ready] .canvas {
+  opacity: 1;
+}
+
+.root[data-ready] .fallback {
+  opacity: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.overlay > * {
+  pointer-events: auto;
+}
+
+/* Labels projected from 3D positions (drei <Html>). */
+.label {
+  padding: 0.3125rem 0.625rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-bg) 72%, transparent);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption-size);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.labelAccent {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+  color: var(--color-accent-text);
+}
+
+.labelInfo {
+  border-color: color-mix(in srgb, var(--color-info-text) 45%, transparent);
+  color: var(--color-info-text);
+}

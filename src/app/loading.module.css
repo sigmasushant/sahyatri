@@ -1,0 +1,43 @@
+.screen {
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  background: var(--color-bg);
+}
+
+.route {
+  width: 9rem;
+}
+
+.track {
+  fill: none;
+  stroke: var(--scene-route);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.progress {
+  fill: none;
+  stroke: var(--scene-driver);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.3 1;
+  animation: travel 1.4s var(--ease-in-out) infinite;
+}
+
+.dot {
+  fill: var(--scene-driver);
+}
+
+.dotEnd {
+  fill: var(--scene-node);
+}
+
+@keyframes travel {
+  from {
+    stroke-dashoffset: 0.3;
+  }
+  to {
+    stroke-dashoffset: -1;
+  }
+}

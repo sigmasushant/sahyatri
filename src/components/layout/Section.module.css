@@ -1,0 +1,52 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--color-bg);
+  /* Off-screen sections skip style, layout and paint until they approach the viewport.
+     They stay in the DOM (find-in-page, anchors and assistive tech are unaffected), and
+     `auto` remembers each section's real size once it has been rendered. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 56rem;
+}
+
+.default {
+  padding-block: var(--layout-section-y);
+}
+
+.compact {
+  padding-block: calc(var(--layout-section-y) * 0.6);
+}
+
+.none {
+  padding-block: 0;
+}
+
+.subtle {
+  background-color: var(--color-bg-subtle);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 46rem;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.eyebrow {
+  color: var(--color-accent-text);
+}
+
+.title {
+  color: var(--color-fg);
+}
+
+.lead {
+  color: var(--color-fg-secondary);
+  max-width: 38rem;
+}

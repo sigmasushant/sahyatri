@@ -1,0 +1,14 @@
+.frame {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: radial-gradient(ellipse at 50% 50%, var(--color-bg-subtle), var(--color-bg) 72%);
+  overflow: hidden;
+}
+
+.canvas {
+  height: clamp(18rem, 70vw, 28rem);
+}
+
+.tall {
+  height: clamp(20rem, 80vw, 34rem);
+}

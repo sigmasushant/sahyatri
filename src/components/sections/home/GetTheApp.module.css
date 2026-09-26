@@ -1,0 +1,80 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding-block: calc(var(--layout-header-height) + var(--space-16)) var(--space-20);
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.visual {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.65;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 70% at 22% 55%, color-mix(in srgb, var(--color-bg) 94%, transparent), transparent 80%),
+    linear-gradient(180deg, var(--color-bg) 0%, transparent 25%, transparent 80%, var(--color-bg) 100%);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  color: var(--color-accent-text);
+}
+
+.title {
+  margin-top: var(--space-5);
+  max-width: 7em;
+}
+
+.lead {
+  margin-top: var(--space-5);
+  max-width: 36rem;
+  color: var(--color-fg-secondary);
+}
+
+.stores {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.soon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-small-size);
+  font-weight: var(--weight-medium);
+  color: var(--color-fg-secondary);
+}
+
+.formCard {
+  width: 100%;
+  max-width: 44rem;
+  margin-top: var(--space-10);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--color-bg-elevated) 82%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}

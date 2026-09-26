@@ -1,0 +1,30 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-fg);
+}
+
+.mark {
+  flex: none;
+}
+
+.tile {
+  fill: var(--palette-lime-400);
+}
+
+.route {
+  stroke: var(--palette-midnight-900);
+}
+
+.dot {
+  fill: var(--palette-midnight-900);
+}
+
+.wordmark {
+  font-size: 1.3125rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  transform: translateY(-1px);
+}

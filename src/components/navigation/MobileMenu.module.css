@@ -1,0 +1,121 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-fg);
+  transition: background-color var(--duration-micro) var(--ease-out);
+}
+
+.trigger:hover {
+  background: color-mix(in srgb, var(--color-fg) 8%, transparent);
+}
+
+.trigger:focus-visible {
+  border-radius: var(--radius-pill);
+}
+
+@media (min-width: 1024px) {
+  .trigger {
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background: color-mix(in srgb, var(--palette-midnight-950) 60%, transparent);
+  animation: fade-in var(--duration-standard) var(--ease-out);
+}
+
+.content {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--layout-gutter) calc(var(--space-6) + env(safe-area-inset-bottom));
+  background: var(--color-bg);
+  overflow-y: auto;
+  animation: slide-in var(--duration-standard) var(--ease-out);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--layout-header-height);
+}
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: calc(-1 * var(--space-2));
+  border-radius: var(--radius-pill);
+  color: var(--color-fg);
+}
+
+.close:focus-visible {
+  border-radius: var(--radius-pill);
+}
+
+.nav {
+  flex: 1;
+  padding-top: var(--space-6);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemRow {
+  animation: item-in var(--duration-large) var(--ease-out) both;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  min-height: 3.5rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-h4-size);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+}
+
+.current {
+  color: var(--color-accent-text);
+}
+
+.footer {
+  display: grid;
+  gap: var(--space-3);
+  padding-top: var(--space-8);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

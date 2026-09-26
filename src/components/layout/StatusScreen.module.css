@@ -1,0 +1,91 @@
+.screen {
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding-block: calc(var(--layout-header-height) + var(--space-16)) var(--space-16);
+  background:
+    radial-gradient(ellipse 50% 60% at 80% 40%, color-mix(in srgb, var(--palette-midnight-700) 60%, transparent), transparent 70%),
+    var(--color-bg);
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.code {
+  color: var(--color-accent-text);
+}
+
+.text {
+  max-width: 32rem;
+  color: var(--color-fg-secondary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.art {
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+}
+
+.road {
+  fill: none;
+  stroke: var(--scene-route);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.detour {
+  fill: none;
+  stroke: var(--scene-driver);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 8;
+  animation: dash 2.4s linear infinite;
+}
+
+.barrier {
+  stroke: var(--scene-driver);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.you {
+  fill: var(--scene-driver);
+}
+
+.youHalo {
+  fill: var(--scene-driver);
+  opacity: 0.18;
+}
+
+.destination {
+  fill: var(--scene-node);
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
